@@ -9,7 +9,6 @@ import cv2
 import numpy as np
 
 
-
 class DetectBlue:
     """
     Detects blue objects from an image.
@@ -49,9 +48,8 @@ class DetectBlue:
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         # Set upper and lower bounds for colour detection, this is in HSV
-        lower_blue = np.array([90, 120, 70])   
-        upper_blue = np.array([131, 255, 255]) 
-
+        lower_blue = np.array([90, 120, 70])
+        upper_blue = np.array([131, 255, 255])
 
         # Apply the threshold for the colour detection
         mask = cv2.inRange(hsv, lower_blue, upper_blue)
@@ -131,7 +129,7 @@ class DetectRed:
 
         # Annotate the colour detections
         # replace the '_' parameter with the appropiate variable
-        contours, _= cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         # ============
         # ↑ BOOTCAMPERS MODIFY ABOVE THIS COMMENT ↑
         # ============
